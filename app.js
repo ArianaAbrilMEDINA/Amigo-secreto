@@ -1,70 +1,40 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
+let amigos = [];
 
-package aed;
+function agregarAmigo() {
+    let ingresarAmigo = document.getElementById("amigo");
+    let nombreDeAmigo = ingresarAmigo.value ;
 
-class Funciones {
-    int cuadrado(int x) {
-        // COMPLETAR
-        return 0;
+    if (nombreDeAmigo == "") {
+        alert("Ingresar un nombre válido, no se admite el ingresado") ;
+        return;
+    }
+    amigos.push(nombreDeAmigo);
+
+    ingresarAmigo.value = ""
+    console.log( "Amigos Ingresados:", amigos);
+    mostrarAmigos();
+}
+
+function mostrarAmigos() {
+    let listaAmigos = document.getElementById("listaAmigos");
+
+    listaAmigos.innerHTML = "";
+
+    for (let i = 0; i<amigos.length; i++) {
+        listaAmigos.innerHTML += "<li>"+ amigos[i] +"</li>";
+    }
+}
+
+function sortearAmigo () {
+    if (amigos.length === 0) {
+        alert("¡Cuidado! No hay amigos para sortear.");
+        return;
     }
 
-    double distancia(double x, double y) {
-        // COMPLETAR
-        return 0.0;
-    }
+    let posicionRandom = Math.floor(Math.random() * amigos.length);
 
-    boolean esPar(int n) {
-        // COMPLETAR
-        return false;
-    }
+    let AmigoSorteado = amigos[posicionRandom];
 
-    boolean esBisiesto(int n) {
-        // COMPLETAR
-        return false;
-    }
-
-    int factorialIterativo(int n) {
-        // COMPLETAR
-        return 0;
-    }
-
-    int factorialRecursivo(int n) {
-        // COMPLETAR
-        return 0;
-    }
-
-    boolean esPrimo(int n) {
-        // COMPLETAR
-        return false;
-    }
-
-    int sumatoria(int[] numeros) {
-        // COMPLETAR
-        return 0;
-    }
-
-    int busqueda(int[] numeros, int buscado) {
-        // COMPLETAR
-        return 0;
-    }
-
-    boolean tienePrimo(int[] numeros) {
-        // COMPLETAR
-        return false;
-    }
-
-    boolean todosPares(int[] numeros) {
-        // COMPLETAR
-        return false;
-    }
-
-    boolean esPrefijo(String s1, String s2) {
-        // COMPLETAR
-        return false;
-    }
-
-    boolean esSufijo(String s1, String s2) {
-        // COMPLETAR
-        return false;
-    }
+    let devolverAmigo = document.getElementById("resultado");
+    devolverAmigo.innerHTML = "El amigo que fue sorteado es:" + AmigoSorteado ;
 }
